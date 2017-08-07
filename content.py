@@ -975,11 +975,11 @@ def get_gene_table(species, gene):
     if not species_exists(species) or not gene_exists(species, gene):
         return []
 
-    return plotly.offline.iplot(
-        {
-            'table': [,
-            'layout': layout
-        },
-        output_type='div',
-        show_link=False,
-        include_plotlyjs=False)
+    # return plotly.offline.iplot(
+    #     {
+    #         'table': [],
+    #         'layout': layout
+    #     },
+    #     output_type='div',
+    #     show_link=False,
+    #     include_plotlyjs=False)

@@ -1,5 +1,17 @@
 <h4>Related genes</h4>
 <div class="row">
-    <div class="col-md-3" id="geneTable">
-    </div>
+  <div class="col-md-3" id="geneTable">
+    <table class="table table-striped" at-table at-paginated at-list="list" at-config="config">
+      <thead></thead>
+      <tbody>
+        <tr>
+          <td at-implicit at-sortable at-attribute="index" width="150" at-initial-sorting="asc"></td>
+          <td at-implicit at-sortable at-attribute="name"  width="250"></td>
+          <td at-implicit at-sortable at-attribute="email"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <at-pagination at-list="list" at-config="config"></at-pagination>
+  </div>
 </div>
