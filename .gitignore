@@ -104,3 +104,5 @@ ENV/
 # Data directory
 data/
 scripts/*.csv
+
+angular-table/

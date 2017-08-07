@@ -1,0 +1,27 @@
+nohup: ignoring input
+Traceback (most recent call last):
+  File "/srv/venv/bin/flask", line 9, in <module>
+    load_entry_point('flask-appconfig==0.11.1', 'console_scripts', 'flask')()
+  File "/srv/venv/lib/python3.4/site-packages/pkg_resources.py", line 353, in load_entry_point
+    return get_distribution(dist).load_entry_point(group, name)
+  File "/srv/venv/lib/python3.4/site-packages/pkg_resources.py", line 2321, in load_entry_point
+    return ep.load()
+  File "/srv/venv/lib/python3.4/site-packages/pkg_resources.py", line 2048, in load
+    entry = __import__(self.module_name, globals(),globals(), ['__name__'])
+  File "/srv/venv/lib/python3.4/site-packages/flask_appconfig/__init__.py", line 5, in <module>
+    from . import env, heroku
+  File "/srv/venv/lib/python3.4/site-packages/flask_appconfig/env.py", line 3, in <module>
+    import json
+  File "/cndd/emukamel/flask_dev/scmdb_py_dev/json.py", line 1, in <module>
+    from flask.json import JSONEncoder
+  File "/srv/venv/lib/python3.4/site-packages/flask/__init__.py", line 19, in <module>
+    from jinja2 import Markup, escape
+  File "/srv/venv/lib/python3.4/site-packages/jinja2/__init__.py", line 33, in <module>
+    from jinja2.environment import Environment, Template
+  File "/srv/venv/lib/python3.4/site-packages/jinja2/environment.py", line 15, in <module>
+    from jinja2 import nodes
+  File "/srv/venv/lib/python3.4/site-packages/jinja2/nodes.py", line 19, in <module>
+    from jinja2.utils import Markup
+  File "/srv/venv/lib/python3.4/site-packages/jinja2/utils.py", line 41, in <module>
+    _slash_escape = '\\/' not in json.dumps('/')
+AttributeError: 'module' object has no attribute 'dumps'
