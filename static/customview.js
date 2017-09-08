@@ -189,7 +189,7 @@ function updateDataTable() {
             "dataSrc": ""
         },
         "columns": [
-        //  { "data": "Rank" },
+            { "data": "Rank" },
             { "data": "geneName" },
             { "data": "geneID" },
             { "data": "chrom" },

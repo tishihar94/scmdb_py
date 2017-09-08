@@ -250,6 +250,7 @@ def gene_id_to_name(species, query):
     query_results = cursor.fetchone()
     return dict(query_results)
 
+
 @cache.memoize(timeout=3600)
 def get_corr_genes(species,query):
     """Get correlated genes of a certain gene of a species. 
@@ -274,8 +275,12 @@ def get_corr_genes(species,query):
     query_results = list(cursor.fetchone())[1:]
     table_data = []
     #print(query_results)
+    i=1
     for geneID in query_results:
-        table_data.append(gene_id_to_name(species,geneID))
+        gene = gene_id_to_name(species,geneID)
+        gene['Rank'] = i
+        table_data.append(gene)
+        i+=1
     return table_data
 
 
