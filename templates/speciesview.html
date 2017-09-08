@@ -21,17 +21,18 @@
 {%- endblock %} 
 {% block scripts %} 
 {{super()}}
+<script src="./static/plotly.min.js"></script>
+<script src="./static/customview.js"></script>
+<link href="./static/datatables.min.css"  rel="stylesheet"/>
+<!--<script src="./static/jquery.datatables.min.js"></script>-->
+<script src="./static/datatables.min.js"></script>
+<link href="./static/bootstrap-toggle.min.css" rel="stylesheet" />
+<script src="./static/bootstrap-toggle.min.js"></script>
 <link href="./static/select2.min.css" rel="stylesheet" />
 <script src="./static/select2.min.js"></script>
 <link href="./static/bootstrap-slider.min.css" rel="stylesheet" />
 <script src="./static/bootstrap-slider.min.js"></script>
-<link href="./static/bootstrap-toggle.min.css" rel="stylesheet" />
-<script src="./static/bootstrap-toggle.min.js"></script>
-<script src="./static/plotly.min.js"></script>
-<script src="./static/customview.js"></script>
-<link href="./static/dataTables.bootstrap.min.css" />
-<script src="./static/dataTables.bootstrap.min.js"></script>
-<script src="./static/jquery.dataTables.min.js"></script>
+
 <script>
     var species = "{{ species }}";
     var pSlider;

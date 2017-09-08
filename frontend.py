@@ -37,6 +37,7 @@ def human():
     return render_template('speciesview.html', species='hsa')
 
 
+
 @frontend.route('/standalone/<species>/<gene>')
 def standalone(species, gene):  # View gene body mCH plots alone.
     return render_template('mch_standalone.html', species=species, gene=gene)

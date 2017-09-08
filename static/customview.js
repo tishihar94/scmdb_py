@@ -179,22 +179,20 @@ function updateOrthologToggle() {
 
 function updateDataTable() {
     var geneSelected = $('#geneName option:selected').val();
-    console.log(geneSelected);
-    $('#geneTable').DataTable( {
-        "destroy": true,
-        "processing": true,
-        "order": [],
-        "ajax": {
-            "url": "./gene/corr/" + species + "/" + geneSelected,
-            "dataSrc": ""
-        },
-        "columns": [
-            { "data": "Rank" },
-            { "data": "geneName" },
-            { "data": "geneID" },
-            { "data": "chrom" },
-            { "data": "start" },
-            { "data": "end" }
-        ]
-    });
+    if (geneSelected != 'Select..') {
+        $('#geneTable').DataTable( {
+            "destroy": true,
+            "processing": true,
+            "order": [],
+            "ajax": {
+                "url": "./gene/corr/" + species + "/" + geneSelected,
+                "dataSrc": ""
+            },
+            "columns": [
+                { "data": "Rank" },
+                { "data": "geneName" },
+                { "data": "chrom" },
+            ]
+        });
+    }
 }
