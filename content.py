@@ -250,6 +250,34 @@ def gene_id_to_name(species, query):
     query_results = cursor.fetchone()
     return dict(query_results)
 
+@cache.memoize(timeout=3600)
+def get_corr_genes(species,query):
+    """Get correlated genes of a certain gene of a species. 
+    
+        Arguments:
+            species(str): Name of species.
+            query(str): Query string of gene ID.
+        
+        Returns:
+            dict: information of genes that are correlated with target gene.
+    """
+    conn = sqlite3.connect('{}/{}/top_corr_genes.sqlite3'.format(
+        current_app.config['DATA_DIR'], species))
+    conn.row_factory = sqlite3.Row
+    cursor = conn.cursor()
+    
+    #skip 'CorrGene_Rank1' due to it being the same as TargetGene
+    #cursor.execute('SELECT TargetGene,CorrGene_Rank2,CorrGene_Rank3,CorrGene_Rank4,CorrGene_Rank5,CorrGene_Rank6,CorrGene_Rank7,CorrGene_Rank8,CorrGene_Rank9,CorrGene_Rank10, CorrGene_Rank11 FROM genes_corr WHERE TargetGene LIKE ?', (query + '%',))
+    cursor.execute('SELECT * FROM genes_corr WHERE TargetGene LIKE ?', (query + '%',))
+    
+    #skip first column (TargetGene)
+    query_results = list(cursor.fetchone())[1:]
+    table_data = []
+    #print(query_results)
+    for geneID in query_results:
+        table_data.append(gene_id_to_name(species,geneID))
+    return table_data
+
 
 @cache.memoize(timeout=3600)
 def get_gene_mch(species, gene, outliers):

@@ -157,6 +157,7 @@ function generateBrowserURL(gene) {
 
 function updateOrthologToggle() {
     var geneSelected = $('#geneName option:selected').val();
+    
     $.ajax({
         type: "GET",
         url: './gene/orthologs/' + species + '/' + geneSelected,
@@ -173,5 +174,27 @@ function updateOrthologToggle() {
                 }
             }
         }
+    });
+}
+
+function updateDataTable() {
+    var geneSelected = $('#geneName option:selected').val();
+    console.log(geneSelected);
+    $('#geneTable').DataTable( {
+        "destroy": true,
+        "processing": true,
+        "order": [],
+        "ajax": {
+            "url": "./gene/corr/" + species + "/" + geneSelected,
+            "dataSrc": ""
+        },
+        "columns": [
+        //  { "data": "Rank" },
+            { "data": "geneName" },
+            { "data": "geneID" },
+            { "data": "chrom" },
+            { "data": "start" },
+            { "data": "end" }
+        ]
     });
 }
